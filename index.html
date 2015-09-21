@@ -17,18 +17,22 @@
 <div class='container'>
     <div class='row'>
         <div class='span8 col-md-8 columns eight large-8'>
-            <h2>TTP Editor</h2>
-            <p>Below is the editor generated from the JSON Schema.</p>
-
-            <div id='editor'></div>
+            <h2>JSON Import / Export</h2>
+            <p>You can paste the TTP JSON here and update the editor by clicking <button class='btn btn-primary' id='setvalue'>Update Form</button></p>
+            <textarea id='output' style='width: 100%; height: 300px; font-family: monospace;' class='form-control'></textarea>
+            <h2>Validation</h2>
+            <p>This will update whenever the form changes to show validation errors if there are any.</p>
+            <textarea id='validate' style='width: 100%; height: 100px; font-family: monospace;' readonly disabled class='form-control'></textarea>
         </div>
         <div class='span4 col-md-4 columns four large-4'>
-            <h2>JSON Output</h2>
-            <p>You can also make changes to the JSON here and set the value in the editor by clicking <button class='btn btn-primary' id='setvalue'>Update Form</button></p>
-            <textarea id='output' style='width: 100%; height: 300px; font-family: monospace;' class='form-control'></textarea>
-
             <h2>Options</h2>
             <div id='options_holder'>
+                <div>
+                    <label>TTP Schema</label>
+                    <select id='schema_switcher' class='form-control'>
+                        <option value='html'>TTPv105</option>
+                    </select>
+                </div>
                 <div>
                     <label>CSS Framework</label>
                     <select id='theme_switcher' class='form-control'>
@@ -39,12 +43,6 @@
                         <option value='foundation3'>Foundation 3</option>
                         <option value='foundation4'>Foundation 4</option>
                         <option value='foundation5'>Foundation 5</option>
-                    </select>
-                </div>
-                <div>
-                    <label>TTP Schema</label>
-                    <select id='theme_switcher' class='form-control'>
-                        <option value='html'>TTPv105</option>
                     </select>
                 </div>
                 <div>
@@ -92,24 +90,26 @@
                 </div>
             </div>
 
-            <h2>Validation</h2>
-            <p>This will update whenever the form changes to show validation errors if there are any.</p>
-            <textarea id='validate' style='width: 100%; height: 100px; font-family: monospace;' readonly disabled class='form-control'></textarea>
         </div>
+    </div>
+    <div class='row'>
+        <div class='span12 col-md-12 columns twelve large-12'>
+            <h2>TTP Form Editor</h2>
+            <p>Below is the editor generated from the JSON Schema.</p>
+
+            <div id='editor'></div>
         <div class='row'>
             <div class='span12 col-md-12 columns twelve large-12'>
                 <h2>Schema</h2>
                 <p>You can change the schema and see how the generated form looks.  After you make changes, click <button class='btn btn-primary' id='setschema'>Update Schema</button></p>
 
                 <textarea id='schema' style='width: 100%; height: 450px; font-family: monospace;' class='form-control'></textarea>
-            </div>
-        </div>
-        <div class='row'>
-            <div class='span12 col-md-12 columns twelve large-12'>
+
                 <h2>Acknowledgements</h2>
                 <p>This editor is based on Jeremy Dorn's MIT licensed JSON editor. See <a href='https://github.com/jdorn/json-editor/'>the code at github.</a></p>
 
             </div>
+        </div>
         </div>
     </div>
 </div>
@@ -1401,11 +1401,11 @@
     }
  
     // Set options from direct link
-    setTheme((window.location.href.match(/[?&]theme=([^&]+)/)||[])[1] || 'bootstrap2', true);
+    setTheme('bootstrap2', true);
     
-    setIconlib((window.location.href.match(/[?&]iconlib=([^&]*)/)||[null,'fontawesome4'])[1], true);
+    setIconlib('fontawesome4', true);
     
-    document.getElementById('object_layout').value = (window.location.href.match(/[?&]object_layout=([^&]+)/)||[])[1] || 'normal';
+    document.getElementById('object_layout').value = 'normal';
     JSONEditor.defaults.options.object_layout = document.getElementById('object_layout').value;
     
     document.getElementById('show_errors').value = (window.location.href.match(/[?&]show_errors=([^&]+)/)||[])[1] || 'interaction';
@@ -1422,3 +1422,4 @@
     reload();
 })();
 </script>
+</html>
