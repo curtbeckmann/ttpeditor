@@ -175,17 +175,19 @@
     //'no_additional_properties': No additional object properties
     //'ajax':                     Allow loading schemas via Ajax
     //'disable_edit_json':        Disable "Edit JSON" buttons
-    //'disable_collapse':         Disable collapse buttons</option>
-    //'disable_properties':       Disable properties buttons</option>
-    //'disable_array_add':        Disable array add buttons</option>
-    //'disable_array_reorder':    Disable array move buttons</option>
-    //'disable_array_delete':     Disable array delete buttons</option>
+    //'disable_collapse':         Disable collapse buttons</>
+    //'disable_properties':       Disable properties buttons</>
+    //'disable_array_add':        Disable array add buttons</>
+    //'disable_array_reorder':    Disable array move buttons</>
+    //'disable_array_delete':     Disable array delete buttons</>
+    //'keep_oneof_values':        Keep values when copying oneof
 	
     var refreshBooleanOptions = function(no_reload) {
         // var boolean_options = document.getElementById('boolean_options').children;
 		var boolean_opt_strs = [ 'required_by_default', 'no_additional_properties', 'ajax', 'disable_edit_json',
-		              'disable_collapse', 'disable_properties', 'disable_array_add', 'disable_array_reorder', 'disable_array_delete' ];
-		var boolean_opt_vals = [ false, false, true, true, false, false, false, false, false ];
+		              'disable_collapse', 'disable_properties', 'disable_array_add', 'disable_array_reorder', 
+					  'disable_array_delete', 'keep_oneof_values' ];
+		var boolean_opt_vals = [ false, false, true, true, false, false, false, false, false, false ];
         // for(var i=0; i<boolean_options.length; i++) {
         for(var i=0; i<boolean_opt_strs.length; i++) {
             // JSONEditor.defaults.options[boolean_options[i].value] = boolean_options[i].selected;
