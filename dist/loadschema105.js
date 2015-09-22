@@ -1,4 +1,5 @@
-var $loadSchema = {
+var loadSchema105 = function () {
+    var schema = {
 
   "title": "TTP",
   "type": "object",
@@ -1136,4 +1137,6 @@ var $loadSchema = {
       }
     }
   }
+}
+    return schema;
 }
