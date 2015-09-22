@@ -3,12 +3,15 @@ var loadSchema105 = function () {
 
   "title": "TTP",
   "type": "object",
+  "options": { "remove_empty_properties" : true },
+   
   "properties": {
     "NDM_metadata": {
       "type": "object",
       "properties": {
         "authority": {
           "type": "string",
+		  "options": { "input_width" : "400px" },
           "description": "Creating authority",
           "minLength": 4,
           "default": "org.opennetworking.odwg"
@@ -23,12 +26,14 @@ var loadSchema105 = function () {
         },
         "name": {
           "type": "string",
+		  "options": { "input_width" : "400px" },
           "description": "NDM Name",
           "minLength": 1,
           "default": "Sample"
         },
         "version": {
           "type": "string",
+		  "options": { "input_width" : "400px" },
           "description": "NDM Version",
           "minLength": 1,
           "default": "1.0.0"
@@ -56,8 +61,11 @@ var loadSchema105 = function () {
             "title": "Line"
           }
         }
-      }
-    },
+      },
+      "required": [
+		  "authority","type","name","version","OF_protocol_version"
+	  ]
+	},
     "identifiers": {
       "type": "array",
       "format": "tabs",
@@ -97,8 +105,11 @@ var loadSchema105 = function () {
                   "title": "Line"
                 }
               }
-            }
-          },
+            },
+            "required": [
+			   "id","type","exp_id","exp_code"
+			]
+	      },
           {
             "type": "object",
             "title": "Var",
@@ -114,17 +125,20 @@ var loadSchema105 = function () {
                 "format": "table",
                 "title": "Doc",
                 "items": {
-                  "type": "string",
-                  "title": "Line"
+                  "type": "string"
                 }
               }
-            }
+            },
+            "required": [
+			   "var"
+			]
           }
         ]
       },
       "default": [
         {
           "id": "sample_id",
+		  "type": "field",
           "doc": ["Sample ID doc"]
         },
         {
