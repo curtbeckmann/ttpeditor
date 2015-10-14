@@ -17,13 +17,15 @@
 <body>
 <div class='container'>
     <div class='row'>
+        <h3>TTP Form Editor</h3>
+    </div>
+    <div class='row'>
         <div class='span8 col-md-8 columns eight large-8'>
-            <h3>TTP JSON Import / Export</h3>
-            <p>To import, paste TTP JSON into window and click <button class='btn btn-primary' id='setvalue'>Update Form</button> To export, copy window content to clipboard</p>
-            <textarea id='output' style='width: 100%; height: 180px; font-family: monospace;' class='form-control'></textarea>
+            <p>Import/export TTP JSON via this (expandable) text window using copy/paste. After import, click <button class='btn btn-primary' id='setvalue'>Update Form</button></p>
+            <textarea id='output' style='width: 100%; height: 100px; font-family: monospace;' class='form-control'></textarea>
         </div>
         <div class='span4 col-md-4 columns four large-4'>
-            <h3>TTP Schema Selector</h3>
+            <p>TTP Schema Selector</p>
             <div id='options_holder'>
                 <div>
                     <select id='schema_switcher' class='form-control'>
@@ -31,26 +33,30 @@
                     </select>
                 </div>
             </div>
-
-            <h3>Validation</h3>
-            <p>TTP form edits will show validation errors, if any.</p>
-            <textarea id='validate' style='width: 100%; height: 100px; font-family: monospace;' readonly disabled class='form-control'></textarea>
+            <p>Schema check of TTP form shown here (expandable)</p>
+            <textarea id='validate' style='width: 100%; height: 45px; font-family: monospace;' readonly disabled class='form-control'></textarea>
         </div>
     </div>
     <div class='row'>
         <div class='span12 col-md-12 columns twelve large-12'>
-            <h3>TTP Form Editor</h3>
-
             <div id='editor'></div>
         <div class='row'>
             <div class='span12 col-md-12 columns twelve large-12'>
                 <h3>Schema</h3>
-                <p>You can change the schema and see how the generated form looks.  After you make changes, click <button class='btn btn-primary' id='setschema'>Update Schema</button></p>
+                <p>You can view the schema here (expandable)</p>
 
                 <textarea id='schema' style='width: 100%; height: 150px; font-family: monospace;' class='form-control'></textarea>
 
+                <h3>Overview</h3>
+                <p>This tool is being developed to support the ONF's Table Type Pattern (TTP) specification.  Some relevant links:</p>
+                <p>--> <a href='https://www.opennetworking.org/technical-communities/areas/specification'>ONF Spec Area page</a> (Includes TTP spec PDF.)</p>
+                <p>--> <a href='https://github.com/OpenNetworkingFoundation/TTP_Repository'>ONF's TTP Github repository</a></p>
+
                 <h3>Acknowledgements</h3>
-                <p>This editor is based on Jeremy Dorn's MIT licensed JSON editor. See <a href='https://github.com/jdorn/json-editor/'>the code at github.</a></p>
+                <p>This editor is based on <a href='https://github.com/jdorn/json-editor/'>Jeremy Dorn's MIT licensed JSON editor</a>.</p>
+
+                <h3>Contact</h3>
+                <p>Email: Beckmann at Brocade</p>
 
             </div>
         </div>
@@ -70,7 +76,7 @@
     var $validate = document.getElementById('validate');
 
     // Buttons
-    var $set_schema_button = document.getElementById('setschema');
+    // var $set_schema_button = document.getElementById('setschema');
     var $set_value_button = document.getElementById('setvalue');
 
     var jsoneditor;
@@ -113,17 +119,17 @@
     });
 
     // Update the schema when the button is clicked
-    $set_schema_button.addEventListener('click',function() {
-        try {
-            schema = JSON.parse($schema.value);
-        }
-        catch(e) {
-            alert('Invalid Schema: '+e.message);
-            return;
-        }
+    // $set_schema_button.addEventListener('click',function() {
+        // try {
+        //     schema = JSON.parse($schema.value);
+        // }
+        // catch(e) {
+            // alert('Invalid Schema: '+e.message);
+            // return;
+        // }
 
-        reload();
-    });
+        // reload();
+    // });
 
     // Set the theme by loading the right stylesheets
     var setTheme = function(theme,no_reload) {

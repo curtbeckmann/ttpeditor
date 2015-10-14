@@ -8,6 +8,7 @@ var loadSchema105 = function () {
   "properties": {
     "NDM_metadata": {
       "type": "object",
+	  "format": "grid",
       "properties": {
         "authority": {
           "type": "string",
@@ -26,14 +27,14 @@ var loadSchema105 = function () {
         },
         "name": {
           "type": "string",
-		  "options": { "input_width" : "400px" },
+		  "options": { "input_width" : "200px" },
           "description": "NDM Name",
           "minLength": 1,
           "default": "Sample"
         },
         "version": {
           "type": "string",
-		  "options": { "input_width" : "400px" },
+		  "options": { "input_width" : "200px" },
           "description": "NDM Version",
           "minLength": 1,
           "default": "1.0.0"
@@ -58,7 +59,6 @@ var loadSchema105 = function () {
           "title": "Doc",
           "items": {
             "type": "string",
-            "title": "Line"
           }
         }
       },
@@ -191,7 +191,6 @@ var loadSchema105 = function () {
     },
     "flow_tables": {
       "type": "array",
-      "format": "table",
       "title": "Flow Tables",
       "items": {
         "type": "object",
@@ -200,17 +199,34 @@ var loadSchema105 = function () {
           "name": {
             "type": "string"
           },
+          "doc": {
+            "type" : "array",
+            "format": "table",
+            "title": "Doc",
+            "items": {
+              "type": "string",
+              "title": "Line"
+            }
+          },
           "flow_mod_types": {
             "type": "array",
-            "format": "table",
             "title": "Flow Mod Type",
             "items": {
               "type": "object",
               "title": "FlowModType",
-			  "format": "grid",
+			  "format": "table",
               "properties": {
                 "name": {
                   "type": "string"
+                },
+                "doc": {
+                  "type" : "array",
+                  "format": "table",
+                  "title": "Doc",
+                  "items": {
+                    "type": "string",
+                    "title": "Line"
+                  }
                 },
                 "priority": {
                   "type": "string"
@@ -478,22 +494,12 @@ var loadSchema105 = function () {
                       }
                     ]
                   }
-                },
-                "doc": {
-                  "type" : "array",
-                  "format": "table",
-                  "title": "Doc",
-                  "items": {
-                    "type": "string",
-                    "title": "Line"
-                  }
                 }
               }
             }
           },
           "built_in_flow_mods": {
             "type": "array",
-            "format": "table",
             "title": "Built In Flow Mods",
             "items": {
               "type": "object",
@@ -502,6 +508,15 @@ var loadSchema105 = function () {
                 "name": {
                   "type": "string"
                 },
+                "doc": {
+                  "type" : "array",
+                  "format": "table",
+                  "title": "Doc",
+                  "items": {
+                    "type": "string",
+                    "title": "Line"
+                  }
+                },
                 "priority": {
                   "type": "string"
                 },
@@ -768,26 +783,8 @@ var loadSchema105 = function () {
                       }
                     ]
                   }
-                },
-                "doc": {
-                  "type" : "array",
-                  "format": "table",
-                  "title": "Doc",
-                  "items": {
-                    "type": "string",
-                    "title": "Line"
-                  }
                 }
               }
-            }
-          },
-          "doc": {
-            "type" : "array",
-            "format": "table",
-            "title": "Doc",
-            "items": {
-              "type": "string",
-              "title": "Line"
             }
           }
         }
