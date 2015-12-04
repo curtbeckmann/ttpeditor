@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>TTP Editor Prototype</title>
+    <title>TTP Editor Prototype2</title>
 
     <!-- placeholders for the theme switcher -->
     <link rel='stylesheet' id='theme_stylesheet'>
@@ -11,7 +11,7 @@
 
     <style>[class*="foundicon-"] {font-family: GeneralFoundicons;font-style: normal;}</style>
     <script src='dist/jsoneditor.js'></script>
-    <script src='dist/loadschema105.js'></script>
+    <script src='dist/loadschema108.js'></script>
     
 </head>
 <body>
@@ -29,7 +29,7 @@
             <div id='options_holder'>
                 <div>
                     <select id='schema_switcher' class='form-control'>
-                        <option value='html'>TTPv105</option>
+                        <option value='html'>TTPv108</option>
                     </select>
                 </div>
             </div>
@@ -67,7 +67,7 @@
 (function() {
     var schema;
 
-    schema = loadSchema105();
+    schema = loadSchema108();
 
     // Divs/textareas on the page
     var $schema = document.getElementById('schema');
